@@ -22,7 +22,6 @@ url = 'https://api.unsplash.com/search/photos/?client_id=' + client_id
 
 def get_photos(term):
     r = requests.get(url + '&query=' + term)
-    print(r.json())
     data = r.json()['results'][0]['urls']['raw']
     r = requests.get(data)
     if r.status_code == 200:
